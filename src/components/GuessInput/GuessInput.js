@@ -22,6 +22,7 @@ const GuessInput = ({ handleNewWord }) => {
       <input
         id="guess-input"
         type="text"
+        autoComplete="off"
         value={guess}
         minLength={5}
         maxLength={5}

@@ -8,7 +8,6 @@ const GuessInput = ({ handleNewWord }) => {
     if (guess.length === 0) {
       return;
     }
-    console.info({ guess });
     handleNewWord(guess);
     setGuess("");
   };

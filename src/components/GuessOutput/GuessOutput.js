@@ -1,7 +1,6 @@
 import React from "react";
 
-function GuessOutput({ guessList }) {
-  console.log(guessList);
+const GuessOutput = ({ guessList }) => {
   return (
     <div className="guess-results">
       {guessList.map((word) => (
@@ -11,6 +10,6 @@ function GuessOutput({ guessList }) {
       ))}
     </div>
   );
-}
+};
 
 export default GuessOutput;

@@ -22,7 +22,7 @@ const Game = () => {
   return (
     <>
       {/*<GuessOutput guessList={guessList} />*/}
-      <Guess guessList={guessList} />
+      <Guess guessList={guessList} answer={answer} />
       <GuessInput handleNewWord={handleNewWord} />
     </>
   );

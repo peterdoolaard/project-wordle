@@ -9,9 +9,7 @@ const Guess = ({ guessList, answer }) => {
 
   const splitWords = guessList.map((word) => {
     return checkGuess(word, answer);
-    // return [...word];
   });
-  console.log(splitWords);
 
   return (
     <div className="guess-results">

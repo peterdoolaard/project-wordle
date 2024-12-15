@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const GuessInput = ({ handleNewWord, isGameOver }) => {
+const GuessInput = ({ handleNewWord, isGameOver, isWinner }) => {
   const [guess, setGuess] = useState("");
 
   const handleSubmit = (event) => {
@@ -23,7 +23,7 @@ const GuessInput = ({ handleNewWord, isGameOver }) => {
         type="text"
         autoFocus
         autoComplete="off"
-        disabled={isGameOver}
+        disabled={isGameOver || isWinner}
         value={guess}
         minLength={5}
         maxLength={5}
@@ -31,7 +31,7 @@ const GuessInput = ({ handleNewWord, isGameOver }) => {
         title="Enter 5 characters"
         onChange={(event) => setGuess(event.target.value.toUpperCase())}
       />
-      <p>A valid input consists of 5 characters.</p>
+      {/*<p>A valid input consists of 5 characters.</p>*/}
     </form>
   );
 };

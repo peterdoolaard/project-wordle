@@ -84,7 +84,7 @@ h1 {
 }
 
 .guess-results {
-	flex: 1;
+	/*flex: 1;*/
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -150,7 +150,7 @@ h1 {
 	flex-direction: column;
 	gap: 8px;
 	height: 6.75rem;
-	margin-block-end: 7rem;
+	margin-block-end: 1rem;
 }
 
 .guess-input-wrapper label {
@@ -239,3 +239,45 @@ h1 {
 		transform: translateY(0%);
 	}
 }
+
+.keyboard {
+	--gap: 0.5em;
+	display: flex;
+	flex-flow: wrap;
+	gap: var(--gap);
+	justify-content: center;
+
+	.row {
+		display: grid;
+		gap: var(--gap);
+		grid-auto-flow: column;
+		inline-size: 100%;
+		justify-content: center;
+	}
+
+	.key {
+		align-items: center;
+		aspect-ratio: 1;
+		background-color: var(--color-gray-900);
+		display: flex;
+		font-size: 1.15rem;
+		justify-content: center;
+		padding-block: 0.25em;
+
+		&.correct {
+			background-color: var(--color-success);
+		}
+
+		&.misplaced {
+			background-color: var(--color-warning);
+		}
+
+		&.incorrect {
+			background-color: var(--color-gray-500);
+		}
+	}
+
+}
+
+
+

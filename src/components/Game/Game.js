@@ -7,6 +7,7 @@ import GuessInput from "../GuessInput/GuessInput";
 import GuessOutput from "../GuessOutput";
 import Guess from "../Guess";
 import Banner from "../Banner";
+import Keyboard from "../Keyboard";
 
 // Pick a random word on every pageload.
 const answer = sample(WORDS);
@@ -34,7 +35,12 @@ const Game = () => {
       {/*<GuessOutput guessList={guessList} />*/}
       <Guess guessList={guessList} answer={answer} />
       <Banner isWinner={isWinner} isGameOver={isGameOver} guesses={guesses} />
-      <GuessInput handleNewWord={handleNewWord} isGameOver={isGameOver} />
+      <GuessInput
+        handleNewWord={handleNewWord}
+        isGameOver={isGameOver}
+        isWinner={isWinner}
+      />
+      <Keyboard guessList={guessList} answer={answer} />
     </>
   );
 };

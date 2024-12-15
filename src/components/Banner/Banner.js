@@ -1,6 +1,14 @@
 import React from "react";
 
-const Banner = ({ isWinner, isGameOver, guesses }) => {
+const NewGameButton = ({ handleClick, children }) => {
+  return (
+    <button className="new-game" onClick={handleClick}>
+      {children}
+    </button>
+  );
+};
+
+const Banner = ({ isWinner, isGameOver, guesses, newGame }) => {
   if (isWinner) {
     return (
       <div className="happy banner">
@@ -12,6 +20,7 @@ const Banner = ({ isWinner, isGameOver, guesses }) => {
           </strong>
           .
         </p>
+        <NewGameButton handleClick={newGame}>New game</NewGameButton>
       </div>
     );
   }
@@ -22,6 +31,7 @@ const Banner = ({ isWinner, isGameOver, guesses }) => {
         <p>
           Sorry, the correct answer is <strong>LEARN</strong>.
         </p>
+        <NewGameButton handleClick={newGame}>Try Again</NewGameButton>
       </div>
     );
   }

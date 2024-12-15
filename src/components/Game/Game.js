@@ -10,11 +10,11 @@ import Banner from "../Banner";
 import Keyboard from "../Keyboard";
 
 // Pick a random word on every pageload.
-const answer = sample(WORDS);
+// const answer = sample(WORDS);
 // To make debugging easier, we'll log the solution in the console.
-console.info({ answer });
 
 const Game = () => {
+  const [answer, setAnswer] = useState(sample(WORDS));
   const [guessList, setGuessList] = useState([]);
   const [isWinner, setIsWinner] = useState(false);
   const [isGameOver, setIsGameOver] = useState(false);
@@ -30,17 +30,32 @@ const Game = () => {
     setGuesses(newGuessList.length);
   };
 
+  const newGame = () => {
+    setAnswer(sample(WORDS));
+    setGuessList([]);
+    setIsWinner(false);
+    setIsGameOver(false);
+    setGuesses(0);
+  };
+
+  console.info({ answer });
+
   return (
     <>
       {/*<GuessOutput guessList={guessList} />*/}
       <Guess guessList={guessList} answer={answer} />
-      <Banner isWinner={isWinner} isGameOver={isGameOver} guesses={guesses} />
       <GuessInput
         handleNewWord={handleNewWord}
         isGameOver={isGameOver}
         isWinner={isWinner}
       />
       <Keyboard guessList={guessList} answer={answer} />
+      <Banner
+        isWinner={isWinner}
+        isGameOver={isGameOver}
+        guesses={guesses}
+        newGame={newGame}
+      />
     </>
   );
 };
